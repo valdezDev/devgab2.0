@@ -6,7 +6,7 @@ import { createHttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 const httpLink = createHttpLink({
-  uri: 'http://penguin.linux.test:5000/'
+  uri: 'http://100.115.92.203:5000/'
 });
 
 const client = new ApolloClient({
