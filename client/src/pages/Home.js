@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { Grid } from "semantic-ui-react";
+import { Grid, Transition } from "semantic-ui-react";
 
 import { AuthContext } from "../context/auth";
 
@@ -12,7 +12,7 @@ function Home() {
   const { user } = useContext(AuthContext);
 
   let posts = "";
-  const { error, loading, data } = useQuery(FETCH_POSTS_QUERY);
+  const { loading, data } = useQuery(FETCH_POSTS_QUERY);
 
   console.log(`Loading: ${loading}`);
   console.log(data);
@@ -29,12 +29,14 @@ function Home() {
       {loading ? (
         <h1>Loading posts..</h1>
       ) : (
-        posts.data &&
-        posts.data.map(post => (
-          <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
-            <PostCard post={post} />
-          </Grid.Column>
-        ))
+        <Transition.Group>
+          {posts.data &&
+            posts.data.map(post => (
+              <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
+                <PostCard post={post} />
+              </Grid.Column>
+            ))}
+        </Transition.Group>
       )}
       <Grid.Row>
         {user && (
