@@ -7,8 +7,6 @@ const { MONGODB } = require("./config.js");
 
 const pubsub = new PubSub();
 
-const PORT = process.env.PORT || 5000;
-
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -20,7 +18,7 @@ mongoose
   .then(() => {
     console.log("MongoDB Connected");
     // console.log(req)
-    return server.listen({ port: PORT });
+    return server.listen(5000, "100.115.92.203");
   })
   .then(res => {
     //console.log(res)
