@@ -10,23 +10,23 @@ import DeleteButton from "./DeleteButton";
 import UtilPopup from "../util/UtilPopup";
 
 function PostCard({
-  post: { body, createdAt, id, username, likeCount, commentCount, likes }
+  post: { body, createdAt, id, username, likeCount, commentCount, likes },
 }) {
   const { user } = useContext(AuthContext);
 
   return (
-    <Card fluid>
-      <Card.Content>
+    <Card fluid className="post-card">
+      <Card.Content className="post-card__content">
         <Image
           floated="right"
           size="mini"
           src="https://react.semantic-ui.com/images/avatar/large/molly.png"
         />
-        <Card.Header>{username}</Card.Header>
-        <Card.Meta as={Link} to={`/posts/${id}`}>
+        <Card.Header className="post-card__header">{username}</Card.Header>
+        <Card.Meta className="post-card__meta" as={Link} to={`/posts/${id}`}>
           {moment(createdAt).fromNow()}
         </Card.Meta>
-        <Card.Description>{body}</Card.Description>
+        <Card.Description className="post-card__desc">{body}</Card.Description>
       </Card.Content>
       <Card.Content extra>
         <LikeButton user={user} post={{ id, likes, likeCount }} />

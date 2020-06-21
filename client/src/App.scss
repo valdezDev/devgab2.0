@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+// General Settings
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-family: "Lato", sans-serif;
+  color: #202020;
+  background-color: #fafafa;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/* ============================= */
+
+.page-title {
+  display: block !important;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.form-container {
+  width: 400px;
+  margin: auto;
+}
+
+.ui.teal.button:focus,
+.ui.teal.buttons .button:focus {
+  background-color: #00b5ad;
+}
+
+// Darkmode
+.darkmode {
+  height: 100vh;
+  background-color: black;
+  color: white !important;
+  html,
+  body {
+    background: black !important;
+  }
+
+  .menu-bar {
+    background: lighten(black, 10%) !important;
+    a {
+      color: white !important;
+    }
+  }
+
+  .post-card,
+  .single-post-card,
+  .post-comment-card,
+  .post-form-card {
+    background: transparent !important;
+
+    &__header,
+    &__meta,
+    &__desc {
+      color: white !important;
+    }
+  }
+
+  .settings {
+    color: white;
+    &__darkmode {
+      button {
+        color: white;
+      }
+    }
+  }
+}
+
+.settings {
+  margin: auto;
+  //text-align: center;
+  &__darkmode {
+    button {
+      background: transparent;
+      border-style: none;
+      align-content: center;
+    }
+  }
+}
